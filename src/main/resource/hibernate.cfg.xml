@@ -14,7 +14,8 @@
 		 
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
-		<!-- <mapping class="com.chenchi.wxlife.entity.User"></mapping> -->
+		<mapping class="com.chenchi.wechat_manager.entity.Manager"></mapping>
+		<mapping class="com.chenchi.wechat_manager.entity.Menus"></mapping>
 		
 	</session-factory>
 </hibernate-configuration>

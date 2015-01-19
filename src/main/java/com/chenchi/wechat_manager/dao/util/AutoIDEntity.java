@@ -1,6 +1,5 @@
 package com.chenchi.wechat_manager.dao.util;
 
-
 import java.lang.reflect.Field;
 
 import javax.persistence.GeneratedValue;
@@ -15,25 +14,23 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 @MappedSuperclass
-public class AutoIDEntity implements java.io.Serializable{
-    /**
-	 * 
-	 */
+public class AutoIDEntity implements java.io.Serializable {
+
 	private Log log = LogFactory.getLog(AutoIDEntity.class);
 	private static final long serialVersionUID = 1L;
 	private Long id;
-    private Integer optimistic;
+	private Integer optimistic;
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    public Long getId() {
-      return this.id;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getId() {
+		return this.id;
+	}
 
-    @Version
-    public Integer getOptimistic() {
-      return this.optimistic;
-    }
+	@Version
+	public Integer getOptimistic() {
+		return this.optimistic;
+	}
 
 	protected void setId(Long id) {
 		this.id = id;
@@ -55,34 +52,34 @@ public class AutoIDEntity implements java.io.Serializable{
 	public int hashCode() {
 		return new HashCodeBuilder().append(id).toHashCode();
 	}
-	
+
 	@Override
 	public String toString() {
-		
-		StringBuilder sb = null;  
-        try {  
-            Class<?> c = this.getClass();  
-            Field[] fields = c.getDeclaredFields();  
-              
-            sb = new StringBuilder();  
-            sb.append(this.getClass().getName());  
-            sb.append(" {");  
-              
-            int i = 1;  
-            for(Field fd : fields){  
-                fd.setAccessible(true);  
-                sb.append(fd.getName());  
-                sb.append(":");  
-                sb.append(fd.get(this));
-                if(i != fields.length){  
-                    sb.append(", ");  
-                }  
-                i++;  
-            }  
-            sb.append("}");  
-        } catch (Exception e) {  
-        	log.error("", e);  
-        }   
-        return sb.toString(); 
+
+		StringBuilder sb = null;
+		try {
+			Class<?> c = this.getClass();
+			Field[] fields = c.getDeclaredFields();
+
+			sb = new StringBuilder();
+			sb.append(this.getClass().getName());
+			sb.append(" {");
+
+			int i = 1;
+			for (Field fd : fields) {
+				fd.setAccessible(true);
+				sb.append(fd.getName());
+				sb.append(":");
+				sb.append(fd.get(this));
+				if (i != fields.length) {
+					sb.append(", ");
+				}
+				i++;
+			}
+			sb.append("}");
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return sb.toString();
 	}
 }
