@@ -16,6 +16,7 @@
 		
 		<mapping class="com.chenchi.wechat_manager.entity.Manager"></mapping>
 		<mapping class="com.chenchi.wechat_manager.entity.Menus"></mapping>
+		<mapping class="com.chenchi.wechat_manager.entity.AppointmentInfo"></mapping>
 		
 	</session-factory>
 </hibernate-configuration>
