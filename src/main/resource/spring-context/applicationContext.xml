@@ -36,6 +36,5 @@
 		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
 		
 	<import resource="spring-mvc-db-mysql.xml"/>
-	<!-- <import resource="spring-quartz.xml"/> -->
-
+	<import resource="spring-quartz.xml"/>
 </beans>
