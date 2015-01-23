@@ -21,40 +21,7 @@
 	</ul>
 	<div class="warp_box"><p class="link_us">联系电话：400-810-2100</p></div>
 	<div class="warp_box">
-	<a href="aboutus">
-		<span class="fl nav_img nav01_img"></span>
-		<span class="fr nav_title nav01_title">
-			<h2>教育理念</h2>
-			<p>我们的教育理念</p>
-		</span>
-	</a>
-	</div>
-	<div class="warp_box">
-	<a href="aboutus">
-		<span class="fl nav_title nav02_title">
-			<h2>课程列表</h2>
-			<p>最新课程动态</p>
-		</span>
-		<span class="fr nav_img nav02_img"></span>
-	</a>
-	</div>
-	<div class="warp_box">
-	<a href="#">
-		<span class="fl nav_img nav03_img"></span>
-		<span class="fr nav_title nav03_title">
-			<h2>预约免费体验</h2>
-			<p>免费预约试听</p>
-		</span>
-	</a>
-	</div>
-	<div class="warp_box">
-	<a href="aboutus">
-		<span class="fl nav_title nav04_title">
-			<h2>关于我们</h2>
-			<p>更详细的了解我们</p>
-		</span>
-		<span class="fr nav_img nav04_img"></span>
-	</a>
+	
 	</div>
 	<div class="footer">棒棒贝贝双桥乐高科技中心</div>
 </div>
