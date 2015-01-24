@@ -21,7 +21,7 @@
 	</ul>
 	<div class="warp_box"><p class="link_us">联系电话：400-810-2100</p></div>
 	<div class="warp_box">
-	<a href="aboutus">
+	<a href="education">
 		<span class="fl nav_img nav01_img"></span>
 		<span class="fr nav_title nav01_title">
 			<h2>教育理念</h2>
@@ -30,7 +30,7 @@
 	</a>
 	</div>
 	<div class="warp_box">
-	<a href="aboutus">
+	<a href="timetable">
 		<span class="fl nav_title nav02_title">
 			<h2>课程列表</h2>
 			<p>最新课程动态</p>
@@ -39,7 +39,7 @@
 	</a>
 	</div>
 	<div class="warp_box">
-	<a href="#">
+	<a href="../appointment/getinfo">
 		<span class="fl nav_img nav03_img"></span>
 		<span class="fr nav_title nav03_title">
 			<h2>预约免费体验</h2>
@@ -56,7 +56,7 @@
 		<span class="fr nav_img nav04_img"></span>
 	</a>
 	</div>
-	<div class="footer">棒棒贝贝双桥乐高科技中心</div>
+	<jsp:include page="../include/footer.jsp"/>
 </div>
 </body>
 </html>
