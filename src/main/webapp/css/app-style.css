@@ -19,6 +19,9 @@ html{
 	margin:0 auto;
 	overflow:hidden;
 }
+.banner { position: relative; overflow: auto; }
+    .banner li { list-style: none; }
+        .banner ul li { float: left; }
 .context_box .banner_box img{
 	width:320px;
 	border:0;

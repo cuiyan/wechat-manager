@@ -296,7 +296,7 @@ public class EntityDaoImpl extends HibernateDaoSupport implements EntityDao {
 	
 	
 	public void save(final Serializable entity) {
-		getHibernateTemplate().save(entity);
+	    this.getSessionFactory().openSession().save(entity);
 	}
 
 	public void update(final Serializable entity) {

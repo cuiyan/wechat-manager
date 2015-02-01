@@ -23,7 +23,7 @@ public class AppointmentInfoDaoImpl implements AppointmentInfoDao {
 
     @Override
     public void add(AppointmentInfo appointmentInfo) {
-        entityDao.persist(appointmentInfo);
+        entityDao.save(appointmentInfo);
     }
 
 }

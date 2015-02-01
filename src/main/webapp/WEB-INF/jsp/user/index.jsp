@@ -10,15 +10,20 @@
 <title>首页</title>
 
 <script src="${pageContext.request.contextPath}/js/jquery-1.11.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/unslider.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/base.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/app-style.css">
 
 </head>
 <body>
 <div class="context_box">
+<div class="banner">
 	<ul class="banner_box">
+		<li><img alt="banner01" src="${pageContext.request.contextPath}/images/banner03.jpg"></li>
+		<li><img alt="banner01" src="${pageContext.request.contextPath}/images/banner02.jpg"></li>
 		<li><img alt="banner01" src="${pageContext.request.contextPath}/images/banner01.jpg"></li>
 	</ul>
+</div>
 	<div class="warp_box"><p class="link_us">联系电话：400-810-2100</p></div>
 	<div class="warp_box">
 	<a href="education">
@@ -58,5 +63,11 @@
 	</div>
 	<jsp:include page="../include/footer.jsp"/>
 </div>
+
+<script type="text/javascript">
+$(function() {
+    $('.banner').unslider();
+});
+</script>
 </body>
 </html>
