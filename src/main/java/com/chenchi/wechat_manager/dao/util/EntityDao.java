@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.orm.hibernate3.HibernateCallback;
+import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.transaction.annotation.Transactional;
 
 @SuppressWarnings("rawtypes")

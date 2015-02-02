@@ -30,9 +30,9 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.type.Type;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataAccessResourceFailureException;
-import org.springframework.orm.hibernate3.HibernateCallback;
-import org.springframework.orm.hibernate3.SessionFactoryUtils;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate4.HibernateCallback;
+import org.springframework.orm.hibernate4.SessionFactoryUtils;
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 @SuppressWarnings({"rawtypes","unchecked","deprecation"})
 public class EntityDaoImpl extends HibernateDaoSupport implements EntityDao {
@@ -115,7 +115,7 @@ public class EntityDaoImpl extends HibernateDaoSupport implements EntityDao {
 			final int startIndex, final int size) {
 		Object result = getHibernateTemplate().execute(new HibernateCallback() {
 			public Object doInHibernate(Session session)
-					throws HibernateException, SQLException {
+					throws HibernateException {
 				Criteria executableCriteria = criteria
 						.getExecutableCriteria(session);
 				executableCriteria.setCacheable(cacheable);
@@ -128,8 +128,7 @@ public class EntityDaoImpl extends HibernateDaoSupport implements EntityDao {
 				if (size > 0) {
 					executableCriteria.setMaxResults(size);
 				}
-				SessionFactoryUtils.applyTransactionTimeout(executableCriteria,
-						getSessionFactory());
+				SessionFactoryUtils.getDataSource(getSessionFactory());
 				return executableCriteria.list();
 			}
 		});
@@ -218,7 +217,7 @@ public class EntityDaoImpl extends HibernateDaoSupport implements EntityDao {
 			}
 		};
 
-		return getHibernateTemplate().executeFind(action);
+		return (List) getHibernateTemplate().execute(action);
 	}
 
 	public List findInCache(final String hql, final boolean cacheable,
@@ -231,7 +230,7 @@ public class EntityDaoImpl extends HibernateDaoSupport implements EntityDao {
 			final Object... objects) {
 		Object result = getHibernateTemplate().execute(new HibernateCallback() {
 			public Object doInHibernate(Session session)
-					throws HibernateException, SQLException {
+					throws HibernateException {
 				Query query = session.createQuery(hql);
 				if (cacheable) {
 					query.setCacheable(true);
@@ -265,7 +264,7 @@ public class EntityDaoImpl extends HibernateDaoSupport implements EntityDao {
 	public Object findUnique(final String hql, final boolean cacheable, final String cacheRegion, final Object... objects) {
 		Object result = getHibernateTemplate().execute(new HibernateCallback(){
 			public Object doInHibernate(Session session)
-					throws HibernateException, SQLException {
+					throws HibernateException {
 				Query query = session.createQuery(hql);
 				if(cacheable){
 					query.setCacheable(true);
@@ -342,7 +341,7 @@ public class EntityDaoImpl extends HibernateDaoSupport implements EntityDao {
 	public Integer executeUpdate(final String hql, final Object... objects) {
 		return (Integer)getHibernateTemplate().execute(new HibernateCallback(){
 			public Object doInHibernate(Session session)
-					throws HibernateException, SQLException {
+					throws HibernateException {
 				Query query = session.createQuery(hql);
 				if(objects!=null){
 					for(int i=0; i<objects.length;i++){
@@ -458,7 +457,7 @@ public class EntityDaoImpl extends HibernateDaoSupport implements EntityDao {
         Query q;
         if (isJdbcSql) {
             //如果是jdbc,则设置entitys和columnAlias
-            SQLQuery sqlQuery = getSession().createSQLQuery(hsql);
+            SQLQuery sqlQuery = currentSession().createSQLQuery(hsql);
             if(entitys!=null){
                 for(String key:entitys.keySet()){
                     sqlQuery.addEntity(key,(Class)entitys.get(key));
@@ -476,7 +475,7 @@ public class EntityDaoImpl extends HibernateDaoSupport implements EntityDao {
             }
             q = sqlQuery;
         } else {
-            q = getSession().createQuery(hsql);
+            q = currentSession().createQuery(hsql);
         }
         String[] keys = q.getNamedParameters();
         if (keys != null && params != null) {
@@ -523,7 +522,7 @@ public class EntityDaoImpl extends HibernateDaoSupport implements EntityDao {
     public List queryListBySqlQuery(String sql, Map<String, Object> params) {
     	
         return queryList(sql, params, true, null, null);
-    }	
+    }
 	
 	
 }

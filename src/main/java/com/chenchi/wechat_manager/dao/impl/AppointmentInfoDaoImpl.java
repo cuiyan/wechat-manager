@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.orm.hibernate4.SessionFactoryUtils;
 import org.springframework.stereotype.Repository;
 
 import com.chenchi.wechat_manager.dao.AppointmentInfoDao;
@@ -15,6 +18,9 @@ public class AppointmentInfoDaoImpl implements AppointmentInfoDao {
     @Resource
     private EntityDao entityDao;
     
+    @Resource 
+    private SessionFactory sessionFactory;
+    
     @Override
     public List<AppointmentInfo> getList() {
         String hql = "from AppointmentInfo ";
@@ -23,7 +29,8 @@ public class AppointmentInfoDaoImpl implements AppointmentInfoDao {
 
     @Override
     public void add(AppointmentInfo appointmentInfo) {
-        entityDao.save(appointmentInfo);
+        Session session = sessionFactory.getCurrentSession();
+        session.save(appointmentInfo);
     }
 
 }
