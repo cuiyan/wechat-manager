@@ -36,11 +36,7 @@ public class ManagerDaoImpl implements ManagerDao {
 		query.setParameter(0, userName);
 		query.setParameter(1, Status.TRUE);
 
-		List<Manager> list = query.list();
-		if (!list.isEmpty()) {
-			return list.get(0);
-		}
-		return null;
+		return (Manager) query.uniqueResult();
 	}
 
 	@Override
