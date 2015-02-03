@@ -20,7 +20,7 @@ import com.chenchi.wechat_manager.service.ManagerService;
  */
 @Controller
 @RequestMapping("/")
-public class ManagerController {
+public class LoginController {
 
 	@Resource
 	private ManagerService managerService;

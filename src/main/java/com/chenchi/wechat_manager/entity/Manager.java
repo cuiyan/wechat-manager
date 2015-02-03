@@ -25,7 +25,7 @@ public class Manager extends AutoIDEntity {
 	/**
 	 * 用户名
 	 */
-	private String username;
+	private String userName;
 	/**
 	 * 密码
 	 */
@@ -40,12 +40,12 @@ public class Manager extends AutoIDEntity {
 	private Status status;
 
 	@Column(name = "USER_NAME", length = 60)
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	@Column(name = "USER_PWD", length = 256)
