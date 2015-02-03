@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.chenchi.wechat_manager.dao.ManagerDao;
-import com.chenchi.wechat_manager.dao.util.EntityDao;
 import com.chenchi.wechat_manager.entity.Manager;
 import com.chenchi.wechat_manager.enums.Status;
 
@@ -15,23 +17,36 @@ import com.chenchi.wechat_manager.enums.Status;
 public class ManagerDaoImpl implements ManagerDao {
 
 	@Resource
-	private EntityDao entityDao;
+	private SessionFactory sessionFactory;
 
 	@Override
 	public List<Manager> getList() {
 		String hql = "from Manager where status = ?";
-		return entityDao.find(hql, Status.TRUE);
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery(hql);
+		query.setParameter(0, Status.TRUE);
+		return query.list();
 	}
 
 	@Override
 	public Manager findByUsername(String userName) {
 		String hql = "from Manager where userName = ? and status = ?";
-		return entityDao.findUnique(Manager.class, hql, userName, Status.TRUE);
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery(hql);
+		query.setParameter(0, userName);
+		query.setParameter(1, Status.TRUE);
+
+		List<Manager> list = query.list();
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+		return null;
 	}
 
 	@Override
 	public void add(Manager manager) {
-		entityDao.persist(manager);
+		Session session = sessionFactory.getCurrentSession();
+		session.save(manager);
 	}
 
 }
