@@ -1,12 +1,15 @@
 package com.chenchi.wechat_manager.controller.manager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.chenchi.wechat_manager.entity.AppointmentInfo;
 import com.chenchi.wechat_manager.service.AppointmentInfoService;
@@ -28,10 +31,15 @@ public class ManagerController {
     public String managerIndex(){
         return "manager/index";
     }
+    
     @RequestMapping("queryAppointment")
-    public List<AppointmentInfo> queryAppointment(){
+    @ResponseBody
+    public   List<AppointmentInfo>  queryAppointment(){
         List<AppointmentInfo>  appList = new ArrayList<AppointmentInfo>();
         appList = appointmentInfoService.getList();
-        return appList;
+        Map<String, Object> result = new HashMap<String, Object>() ;
+        result.put("rows", appList);
+        //request.setAttribute("list", appList);
+        return  appList;
     }
 }
