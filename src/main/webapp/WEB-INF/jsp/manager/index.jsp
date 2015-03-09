@@ -1,91 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE>
-<html>
+<!DOCTYPE html>
+<html class="panel-fit">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>后台管理</title>
-<style type="text/css">
-#top{
-width: 100%;
-background-color: green;
-height:200px;
-}
-#navigation{
-width: 20%;
-float: left;
-height: 800px;
-background-color: #ccc;
-}
-#content{
-width: 80%;
-float: right;
-height: 800px;
-background-color: #eee;
-}
-</style>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/easyui.css">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/icon.css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Basic Layout - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/easyui/themes/bootstrap/easyui.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/base.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/manager_main.css">
 </head>
-<body>
-<div id="top">
-	<ul>
-		<li>
-		<a href="">活动管理</a>
-		</li>
-	</ul>
-</div>
-<div id="navigation">
-	<ul>
-		<li>
-			<a id="queryAppointment" href="#">预约查看</a>
-		</li>
-	</ul>
-</div>
-<div >
-	<table id="content">
-	
-	</table>
-</div>
-</body>
+<body class="easyui-layout layout panel-noscroll">
+    <div class="easyui-layout" border="false" fit="true">
+        <div data-options="region:'north'" class="nav_box" style="height:50px">
+        	<div class="logo"></div>
+        	<ul>
+        		<li><a href="">活动管理</a></li>
+        	</ul>
+        </div>
+        <div data-options="region:'south',split:true" style="height:50px;"></div>
+        <div data-options="region:'west',split:true" title="二级导航" style="width:200px;">
+        <ul class="easyui-tree tree">
+        <li><div id="_easyui_tree_137" class="tree-node" onclick="open1('queryAppointment','活动预约查询')"><span class="tree-title">活动预约查询</span></div></li>
+        </ul>
+        </div>
+        <div data-options="region:'center'" class="panel-body panel-body-noheader layout-body panel-noscroll">
+        	<div id="tt" class="easyui-tabs tabs-container easyui-fluid" border="false" fit="true">
+		        <div title="欢迎" style="padding:10px">
+		            <p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>
+		            <ul>
+		                <li>easyui is a collection of user-interface plugin based on jQuery.</li>
+		                <li>easyui provides essential functionality for building modem, interactive, javascript applications.</li>
+		                <li>using easyui you don't need to write many javascript code, you usually defines user-interface by writing some HTML markup.</li>
+		                <li>complete framework for HTML5 web page.</li>
+		                <li>easyui save your time and scales while developing your products.</li>
+		                <li>easyui is very easy but powerful.</li>
+		            </ul>
+		        </div>
+		    </div>
+        </div>
+    </div>
+    </div>
 
-<script type="text/javascript">
-var tab ;
-$(function(){
-	
-	tab = $("#content").datagrid({
-		
-		
-		method: "get",
-	    url:'queryAppointment', 
-	    fit : true,
-		fitColumns : true,
-		border : false,
-		striped:true,
-		idField : 'id',
-		pagination:true,
-		rownumbers:true,
-		pageNumber:1,
-		pageSize : 20,
-		pageList : [ 10, 20, 30, 40, 50 ],
-		singleSelect:true,
-	    columns:[[    
-			{field:'id',title:'id',hidden:true},  
-			{field:'babyName',title:'姓名',sortable:true,width:100},
-			{field:'birthday',title:'出生日期',sortable:true,width:100},
-	        {field:'telephone',title:'联系电话',sortable:true,width:100},    
-	        {field:'createTime',title:'报名日期',sortable:true}
-	
-	    ]],
-	    enableHeaderClickMenu: false,
-	    enableHeaderContextMenu: false,
-	    enableRowContextMenu: false,
-	    toolbar:'#content'
-	    
-	
-	});
-});
-</script>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/manager_main.js"></script>
+</body>
 </html>

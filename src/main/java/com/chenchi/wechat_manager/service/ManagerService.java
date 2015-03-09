@@ -46,4 +46,10 @@ public interface ManagerService {
 	public String loginCheck(String userName, String userPwd)
 			throws ManagerException;
 
+	/**
+	 * 登录状态校验
+	 * @param loginKey
+	 */
+    public void statusCheck(String loginKey);
+
 }

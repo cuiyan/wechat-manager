@@ -6,10 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.HttpServletBean;
 
 import com.chenchi.wechat_manager.entity.AppointmentInfo;
 import com.chenchi.wechat_manager.service.AppointmentInfoService;
@@ -33,13 +35,19 @@ public class ManagerController {
     }
     
     @RequestMapping("queryAppointment")
+    public String queryAppointment(HttpServletRequest request){
+//        List<AppointmentInfo>  appList = new ArrayList<AppointmentInfo>();
+//        appList = appointmentInfoService.getList();
+//        Map<String, Object> result = new HashMap<String, Object>() ;
+//        result.put("list", appList);
+//        request.setAttribute("list", appList);
+        return  "manager/queryAppointment";
+    }
+    @RequestMapping("queryAppointmentList")
     @ResponseBody
-    public   List<AppointmentInfo>  queryAppointment(){
+    public List<AppointmentInfo> queryAppointmentList(){
         List<AppointmentInfo>  appList = new ArrayList<AppointmentInfo>();
         appList = appointmentInfoService.getList();
-        Map<String, Object> result = new HashMap<String, Object>() ;
-        result.put("rows", appList);
-        //request.setAttribute("list", appList);
-        return  appList;
+        return appList;
     }
 }

@@ -19,9 +19,9 @@
 <div class="context_box">
 <div class="banner">
 	<ul class="banner_box">
-		<li><img alt="banner01" src="${pageContext.request.contextPath}/images/banner03.jpg"></li>
-		<li><img alt="banner01" src="${pageContext.request.contextPath}/images/banner02.jpg"></li>
-		<li><img alt="banner01" src="${pageContext.request.contextPath}/images/banner01.jpg"></li>
+		<li><img alt="banner01" src="${pageContext.request.contextPath}/img/banner03.jpg"></li>
+		<li><img alt="banner01" src="${pageContext.request.contextPath}/img/banner02.jpg"></li>
+		<li><img alt="banner01" src="${pageContext.request.contextPath}/img/banner01.jpg"></li>
 	</ul>
 </div>
 	<div class="warp_box"><p class="link_us">联系电话：400-810-2100</p></div>

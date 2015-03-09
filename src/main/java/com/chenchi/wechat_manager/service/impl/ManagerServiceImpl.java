@@ -55,4 +55,10 @@ public class ManagerServiceImpl implements ManagerService {
 
 		return loginKey;
 	}
+
+    @Override
+    public void statusCheck(String loginKey) {
+        // TODO Auto-generated method stub
+        
+    }
 }
