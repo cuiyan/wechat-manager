@@ -29,8 +29,8 @@
         <div class="page-container">
             <h1>管理员请登录</h1>
             <form action="" id="fm" method="post">
-                <input type="text" name="userName" class="username" placeholder="用户名">
-                <input type="password" name="password" class="password" placeholder="密码">
+                <input type="text" name="userName" class="username" placeholder="用户名" autocomplete="off">
+                <input type="password" name="password" class="password" placeholder="密码" autocomplete="off">
                 <button type="button" id="submitBtn">登录</button>
                 <div class="error"><span>+</span></div>
             </form>
@@ -38,6 +38,7 @@
 
         <!-- Javascript -->
         <script src="${pageContext.request.contextPath}/js/jquery-1.11.2.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery.cookie.js"></script>
         <script src="${pageContext.request.contextPath}/js/supersized.3.2.7.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/supersized-init.js"></script>
         <script src="${pageContext.request.contextPath}/js/manager_login.js"></script>

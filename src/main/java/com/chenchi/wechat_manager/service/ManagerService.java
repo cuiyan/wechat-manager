@@ -2,6 +2,7 @@ package com.chenchi.wechat_manager.service;
 
 import java.util.List;
 
+import com.chenchi.wechat_manager.bean.ManagerBean;
 import com.chenchi.wechat_manager.entity.Manager;
 import com.chenchi.wechat_manager.exception.ManagerException;
 
@@ -43,13 +44,15 @@ public interface ManagerService {
 	 * @throws ManagerException
 	 * @see 需要参考的类或方法
 	 */
-	public String loginCheck(String userName, String userPwd)
+	public ManagerBean loginCheck(String userName, String userPwd)
 			throws ManagerException;
 
 	/**
 	 * 登录状态校验
+	 * 
 	 * @param loginKey
+	 * @throws ManagerException
 	 */
-    public void statusCheck(String loginKey);
+	public void statusCheck(ManagerBean manager, String loginKey) throws ManagerException;
 
 }

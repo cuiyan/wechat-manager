@@ -34,6 +34,7 @@ jQuery(document).ready(function() {
 		   			return false;
 		   		}
 		   		if(msgObj.type=="SUCCESS"){
+		   			$.cookie("LOGINKEY", msgObj.reason);
 		   			window.location.href="manager/index";
 		   		}
 		   }

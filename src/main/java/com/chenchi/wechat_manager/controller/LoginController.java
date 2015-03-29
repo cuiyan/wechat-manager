@@ -1,12 +1,14 @@
 package com.chenchi.wechat_manager.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.chenchi.wechat_manager.bean.ManagerBean;
 import com.chenchi.wechat_manager.controller.result.LoginResultBean;
 import com.chenchi.wechat_manager.enums.ResultType;
 import com.chenchi.wechat_manager.exception.ManagerException;
@@ -43,10 +45,10 @@ public class LoginController {
 	 * @see 需要参考的类或方法
 	 */
 	@RequestMapping("manager-logindo")
-	public @ResponseBody String managerLoginDo(String userName, String userPwd) {
+	public @ResponseBody String managerLoginDo(String userName, String userPwd, HttpSession session) {
 
 		LoginResultBean result = new LoginResultBean();
-		String loginKey = "";
+		ManagerBean manager = new ManagerBean();
 
 		if (userName == null || "".equals(userName)) {
 			result.setType(ResultType.ERROR);
@@ -61,7 +63,9 @@ public class LoginController {
 		}
 
 		try {
-			loginKey = managerService.loginCheck(userName, userPwd);
+			manager = managerService.loginCheck(userName, userPwd);
+			session.setAttribute("manager", manager);
+
 		} catch (ManagerException e) {
 			result.setType(ResultType.ERROR);
 			result.setReason(e.getMessage());
@@ -69,7 +73,7 @@ public class LoginController {
 		}
 
 		result.setType(ResultType.SUCCESS);
-		result.setReason(loginKey);
+		result.setReason(manager.getLoginKey());
 		return JSON.toJSONString(result);
 	}
 }
