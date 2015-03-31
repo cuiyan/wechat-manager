@@ -3,11 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
 <div id="content">
-<table class="easyui-datagrid"   id="appTable" >
+<table class="easyui-datagrid"   id="queryAppointmentList" >
    
 </table>
 <script>
-var tab=$("#appTable").datagrid({
+var tab=$("#queryAppointmentList").datagrid({
 	url:"${pageContext.request.contextPath}/manager/queryAppointmentList",//加载的URL
    	//isField:"id","C:/Users/Administrator/Downloads/spring-security-samples-tutorial-3.1.0.CI-SNAPSHOT/WEB-INF/applicationContext-security.xml"
 	pagination:true,//显示分页
