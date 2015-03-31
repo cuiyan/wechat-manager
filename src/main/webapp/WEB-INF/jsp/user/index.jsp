@@ -24,7 +24,10 @@
 		<li><img alt="banner01" src="${pageContext.request.contextPath}/img/banner01.jpg"></li>
 	</ul>
 </div>
-	<div class="warp_box"><p class="link_us">联系电话：400-810-2100</p></div>
+	<div class="warp_box">
+		<p class="link_us">联系电话：010-53011727</p>
+		<p class="link_us">联系电话：010-53011728</p>
+	</div>
 	<div class="warp_box">
 	<a href="education">
 		<span class="fl nav_img nav01_img"></span>
