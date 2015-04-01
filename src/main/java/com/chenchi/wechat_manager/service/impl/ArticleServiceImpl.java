@@ -1,5 +1,6 @@
 package com.chenchi.wechat_manager.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -19,5 +20,13 @@ public class ArticleServiceImpl implements ArticleService {
 	public List<Article> getList() {
 		return articleDao.getlist();
 	}
-
+	/**
+     * 保存文章
+     * @param article
+     */
+    public void saveArticle(Article article){
+        article.setCreateTime(new Date());
+        article.setUpdateTime(new Date());
+        articleDao.add(article);
+    }
 }

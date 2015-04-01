@@ -22,7 +22,7 @@
         <div data-options="region:'west',split:true" title="二级导航" style="width:200px;">
         <ul class="easyui-tree tree">
         <li><div id="_easyui_tree_137" class="tree-node" onclick="open1('queryAppointment','活动预约查询')"><span class="tree-title">活动预约查询</span></div></li>
-        <li><div id="_easyui_tree_137" class="tree-node" onclick="open1('queryArticles','文章管理')"><span class="tree-title">文章管理</span></div></li>
+        <li><div id="_easyui_tree_137" class="tree-node" onclick="open1('managerArticles','文章管理')"><span class="tree-title">文章管理</span></div></li>
         </ul>
         </div>
         <div data-options="region:'center'" class="panel-body panel-body-noheader layout-body panel-noscroll">

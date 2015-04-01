@@ -11,4 +11,9 @@ public interface ArticleService {
 	 * @see 需要参考的类或方法
 	 */
 	public List<Article> getList();
+	/**
+	 * 保存文章
+	 * @param article
+	 */
+	public void saveArticle(Article article);
 }

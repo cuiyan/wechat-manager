@@ -59,6 +59,7 @@ public class ManagerCheck implements HandlerInterceptor {
 		}
 
 		try {
+		    session.setAttribute("userName", manager.getUserName());
 			managerService.statusCheck(manager, loginKey);
 		} catch (Exception e) {
 			log.error(e.getMessage());

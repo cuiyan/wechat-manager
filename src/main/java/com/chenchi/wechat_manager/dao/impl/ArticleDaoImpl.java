@@ -40,7 +40,8 @@ public class ArticleDaoImpl implements ArticleDao {
 
 	@Override
 	public void add(Article article) {
-		// TODO Auto-generated method stub
+	    Session session = sessionFactory.getCurrentSession();
+        session.save(article);
 
 	}
 
